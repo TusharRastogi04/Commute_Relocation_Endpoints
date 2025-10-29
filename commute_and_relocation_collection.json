@@ -1,0 +1,110 @@
+{
+  "info": {
+    "name": "Commute & Relocation API (Final Corrected)",
+    "_postman_id": "c7b9e531-9f84-4898-9d4b-dba2c0e38d72",
+    "description": "Test collection for DRF-based Commute and Relocation APIs (all responses in CAD).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "🚗 Commute API",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"home_address\": \"rohtak, Haryana, India\",\n  \"job_address\": \"Noida, Uttar Pradesh, India\",\n  \"mode\": \"driving\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/commute/",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "commute", ""]
+        }
+      },
+      "response": [
+        {
+          "name": "Example Success Response",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"home_address\": \"rohtak, Haryana, India\",\n  \"job_address\": \"Noida, Uttar Pradesh, India\",\n  \"mode\": \"driving\"\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/commute/",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "8000",
+              "path": ["api", "commute", ""]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "body": "{\n  \"ok\": true,\n  \"data\": {\n    \"distance_km\": 106.51,\n    \"duration_min\": 101.84,\n    \"mode\": \"driving\",\n    \"fuel_cost_cad\": 22.72,\n    \"summary\": \"Your commute is 101.8 minutes by driving, covering 106.5 km. Estimated round-trip fuel cost: CAD 22.72.\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "🏡 Relocation API",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"current_address\": \"rohtak, Haryana, India\",\n  \"target_address\": \"Noida, Uttar Pradesh, India\",\n  \"flat_rent_current\": 2500.00,\n  \"flat_rent_target\": 2200.00,\n  \"commute_cost_current\": 400.00,\n  \"commute_cost_target\": 150.00,\n  \"utilities_current\": 200.00,\n  \"utilities_target\": 180.00,\n  \"groceries_current\": 300.00,\n  \"groceries_target\": 280.00,\n  \"misc_current\": 150.00,\n  \"misc_target\": 120.00\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/relocation/",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["api", "relocation", ""]
+        }
+      },
+      "response": [
+        {
+          "name": "Example Success Response",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"current_address\": \"rohtak, Haryana, India\",\n  \"target_address\": \"Noida, Uttar Pradesh, India\",\n  \"flat_rent_current\": 2500.00,\n  \"flat_rent_target\": 2200.00,\n  \"commute_cost_current\": 400.00,\n  \"commute_cost_target\": 150.00,\n  \"utilities_current\": 200.00,\n  \"utilities_target\": 180.00,\n  \"groceries_current\": 300.00,\n  \"groceries_target\": 280.00,\n  \"misc_current\": 150.00,\n  \"misc_target\": 120.00\n}"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/relocation/",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "8000",
+              "path": ["api", "relocation", ""]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [{ "key": "Content-Type", "value": "application/json" }],
+          "body": "{\n  \"ok\": true,\n  \"summary\": \"Relocating from rohtak, Haryana, India to Noida, Uttar Pradesh, India could save you approximately CAD 620.0 per month. Your flat rent decreases from CAD 2500.0 to CAD 2200.0, commute costs reduce, utilities and groceries are slightly lower, while miscellaneous expenses may also decrease slightly. Overall, total monthly expenses are reduced, and you may also benefit from a shorter commute and improved convenience.\"\n}"
+        }
+      ]
+    }
+  ]
+}
